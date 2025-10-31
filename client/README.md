@@ -1,65 +1,63 @@
-# 🧠 MERN Blog Platform — Backend
+# 🖼️ MERN Blog Platform — Frontend
 
-This is the Express + MongoDB backend for the MERN blog platform. It handles user authentication, post management, and real-time comment broadcasting via Socket.IO.
+This is the React frontend for the MERN blog platform. It connects to the backend API, displays posts, and supports real-time comments.
 
 ## 🚀 Features
 
-- User registration and login (JWT-based)
-- CRUD operations for blog posts
-- Real-time comment updates with Socket.IO
-- MongoDB integration with Mongoose
-- Validation with express-validator
-- Environment configuration via `.env`
+- Responsive UI with React and Bootstrap
+- Auth-aware navigation (Login/Signup)
+- Create and view blog posts
+- Real-time comment updates
+- Axios for API calls
+- React Router for navigation
 
 ## 📦 Tech Stack
 
-- Node.js
-- Express
-- MongoDB + Mongoose
-- Socket.IO
-- JWT
-- dotenv
-- express-validator
+- React
+- React Router
+- Axios
+- Bootstrap / React-Bootstrap
+- Socket.IO Client
 
 ## ⚙️ Setup
 
-1. Clone the repo and navigate to `server/`
+1. Navigate to `client/`
 2. Install dependencies:
 
    ```bash
    npm install
 Create a .env file:
 
-env
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=5000
-Start the server:
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+Start the frontend:
 
 bash
-npm run dev
+npm start
+```
 
-## 📡 API Endpoints
-Method	Endpoint	Description
-POST	/api/auth/register	Register a new user
-POST	/api/auth/login	Login and get token
-GET	/api/posts	Fetch all posts
-POST	/api/posts	Create a new post
+## 🧭 Pages
+/ — Home (list of posts)
 
-## 🧪 Testing
-Use Postman or your frontend to test endpoints. JWT token required for protected routes.
+/login — Login form
+
+/signup — Signup form
+
+/create — Create a new post
+
+/posts/:id — View post with comments
 
 ## 📁 Folder Structure
-Code
 ```
-server/
-├── controllers/
-├── models/
-├── routes/
-├── middleware/
-├── index.js
+client/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── api/
+│   ├── App.js
+│   └── index.js
+├── public/
 └── .env.example
 ```
-
 ## 📜 License
 MIT — feel free to use and adapt.
