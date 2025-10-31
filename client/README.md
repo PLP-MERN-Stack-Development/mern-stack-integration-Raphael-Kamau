@@ -1,5 +1,3 @@
-📘 server/README.md — Backend
-markdown
 # 🧠 MERN Blog Platform — Backend
 
 This is the Express + MongoDB backend for the MERN blog platform. It handles user authentication, post management, and real-time comment broadcasting via Socket.IO.
@@ -40,17 +38,20 @@ Start the server:
 
 bash
 npm run dev
-📡 API Endpoints
+
+## 📡 API Endpoints
 Method	Endpoint	Description
 POST	/api/auth/register	Register a new user
 POST	/api/auth/login	Login and get token
 GET	/api/posts	Fetch all posts
 POST	/api/posts	Create a new post
-🧪 Testing
+
+## 🧪 Testing
 Use Postman or your frontend to test endpoints. JWT token required for protected routes.
 
-📁 Folder Structure
+## 📁 Folder Structure
 Code
+```
 server/
 ├── controllers/
 ├── models/
@@ -58,5 +59,6 @@ server/
 ├── middleware/
 ├── index.js
 └── .env.example
-📜 License
+
+## 📜 License
 MIT — feel free to use and adapt.
