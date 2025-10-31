@@ -29,7 +29,7 @@ This is the Express + MongoDB backend for the MERN blog platform. It handles use
    ```bash
    npm install
 Create a .env file:
-
+```
 env
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
@@ -38,6 +38,7 @@ Start the server:
 
 bash
 npm run dev
+```
 
 ## 📡 API Endpoints
 Method	Endpoint	Description
