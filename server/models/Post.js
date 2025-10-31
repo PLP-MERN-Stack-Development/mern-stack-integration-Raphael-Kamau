@@ -2,6 +2,8 @@
 
 const mongoose = require('mongoose');
 
+// import mongoose from 'mongoose';
+
 const PostSchema = new mongoose.Schema(
   {
     title: {
@@ -62,6 +64,12 @@ const PostSchema = new mongoose.Schema(
         },
       },
     ],
+    likes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   { timestamps: true }
 );
@@ -97,4 +105,27 @@ PostSchema.methods.incrementViewCount = function () {
   return this.save();
 };
 
-module.exports = mongoose.model('Post', PostSchema); 
+// Controller method to toggle like
+export const toggleLike = async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ message: 'Post not found' });
+
+    const userId = req.user._id;
+    const index = post.likes.indexOf(userId);
+
+    if (index === -1) {
+      post.likes.push(userId);
+    } else {
+      post.likes.splice(index, 1);
+    }
+
+    await post.save();
+    res.json({ likes: post.likes });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const Post = mongoose.model('Post', PostSchema);
+export default Post;
