@@ -59,6 +59,7 @@ server/
 ├── middleware/
 ├── index.js
 └── .env.example
+```
 
 ## 📜 License
 MIT — feel free to use and adapt.
